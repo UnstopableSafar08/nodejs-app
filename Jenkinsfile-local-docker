@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "my-node-app"
+        CONTAINER_NAME = "my-node-container"
+        PORT = "3000"
+    }
+
+    stages {
+        stage('Init') {
+            steps {
+                sh '''
+                    git -v
+                    docker -v
+                '''
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                deleteDir() // clean workspace before checkout
+                git branch: 'main',
+                    url: 'https://github.com/UnstopableSafar08/nodejs-app.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t $IMAGE_NAME .'
+            }
+        }
+
+        stage('Stop Old Container') {
+            steps {
+                sh '''
+                if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
+                    docker stop $CONTAINER_NAME
+                    docker rm $CONTAINER_NAME
+                fi
+                '''
+            }
+        }
+
+        stage('Run New Container') {
+            steps {
+                sh 'docker run -d --name $CONTAINER_NAME -p $PORT:3000 $IMAGE_NAME'
+            }
+        }
+    }
+}
