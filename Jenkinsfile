@@ -1,6 +1,6 @@
 // Stages
 // 1. Checkout
-// 2. Run Tests & Generate Coverage
+// 2. Build and Run Tests & Generate Coverage
 // 3. SonarQube Scan
 // 4. Sonar Quality Gate
 // 5. OWASP Dependency-Check
