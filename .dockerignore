@@ -1,0 +1,38 @@
+# Node modules (install fresh in Docker image)
+node_modules
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Coverage and test reports (if generated later)
+coverage/
+lcov-report/
+
+# Git files
+.git
+.gitignore
+
+# Docker installation scripts / docs (not needed in image)
+docker-installation-ubuntu-el9.sh
+docker_install_ubuntu_rhel.md
+jenkins_docker_install.md
+
+# Jenkinsfiles (pipeline files not needed inside container)
+Jenkinsfile
+Jenkinsfile-local-docker
+
+# Environment files (if any sensitive env vars)
+.env
+.env.*
+
+# OS / IDE files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# License / README (optional, not needed in image)
+LICENSE
+README.md
