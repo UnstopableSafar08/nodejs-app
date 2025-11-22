@@ -18,6 +18,7 @@ lcov-report/
 docker-installation-ubuntu-el9.sh
 docker_install_ubuntu_rhel.md
 jenkins_docker_install.md
+nodejs_install_using_nvm.md
 
 # Jenkinsfiles (pipeline files not needed inside container)
 Jenkinsfile
