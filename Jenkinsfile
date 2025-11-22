@@ -1,3 +1,13 @@
+// Stages
+// 1. Checkout
+// 2. Run Tests & Generate Coverage
+// 3. SonarQube Scan
+// 4. Sonar Quality Gate
+// 5. OWASP Dependency-Check
+// 6. Build Docker Image
+// 7. Trivy Image Scan
+// 8. Trivy FileSystem Scan
+
 pipeline {
     agent any
   tools {
